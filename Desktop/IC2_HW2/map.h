@@ -16,6 +16,7 @@ class map
 		void set_mine(int mine);
 		void set_mine_pos(pair<int, int> FirstStep);
 		void count_surrounding_mines(pair<int, int> Coord);
+		void uncover(pair<int, int> Coord);
 	
 	private:
 		vector<vector<int>> _map;

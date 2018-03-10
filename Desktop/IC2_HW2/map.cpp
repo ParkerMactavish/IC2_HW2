@@ -16,8 +16,18 @@ void map::print_map()
 	{
 		for(int j=0; j<_map[i].size(); j++)
 		{
-			if(_mask[i][j]==0)cout<<setw(2)<<_map[i][j];
-			else cout<<0;
+			if(_mask[i][j]==1)cout<<setw(2)<<_map[i][j];
+			else cout<<"  ";
+		}
+		cout<<endl;
+	}
+	
+	//test
+	for(int i=0; i<_map.size(); i++)
+	{
+		for(int j=0; j<_map[i].size(); j++)
+		{
+			cout<<setw(2)<<_map[i][j];
 		}
 		cout<<endl;
 	}
@@ -67,7 +77,66 @@ void map::set_mine_pos(pair<int, int> FirstStep)
 		_map[TmpIntPair.first][TmpIntPair.second]=-1;
 		map::count_surrounding_mines(TmpIntPair);
 	}
+	map::uncover(FirstStep);
 }
+
+void map::uncover(pair<int, int> Coord)
+{
+	
+	_mask[Coord.first][Coord.second]=1;
+	cout<<1;
+	if(Coord.first>0 && _map[Coord.first-1][Coord.second]!=-1)
+	{
+		_mask[Coord.first-1][Coord.second]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first-1, Coord.second);
+		map::uncover(TmpIntPair);
+		cout<<2;
+	}//up
+	cout<<"up"<<endl;
+	if(Coord.second>0 && _map[Coord.first][Coord.second-1]!=-1)
+	{
+		_mask[Coord.first][Coord.second-1]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first, Coord.second-1);
+		map::uncover(TmpIntPair);
+	}//left
+	if(Coord.first<_NumberOfRow-1 && _map[Coord.first+1][Coord.second]!=-1)
+	{
+		_mask[Coord.first+1][Coord.second]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first+1, Coord.second);
+		map::uncover(TmpIntPair);
+	}//down
+	if(Coord.second<_NumberOfCol-1 && _map[Coord.first][Coord.second+1]!=-1)
+	{
+		_mask[Coord.first][Coord.second+1]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first, Coord.second+1);
+		map::uncover(TmpIntPair);
+	}//right	
+	if(Coord.first>1 && Coord.second>1 && _map[Coord.first-1][Coord.second-1]!=-1)
+	{
+		_mask[Coord.first-1][Coord.second-1]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first-1, Coord.second-1);
+		map::uncover(TmpIntPair);
+	}//up left
+	if(Coord.first>1 && Coord.second<_NumberOfCol-1 && _map[Coord.first-1][Coord.second+1]!=-1)
+	{
+		_mask[Coord.first-1][Coord.second+1]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first-1, Coord.second+1);
+		map::uncover(TmpIntPair);
+	}//up right	
+	if(Coord.first<_NumberOfRow-1 && Coord.second>1 && _map[Coord.first+1][Coord.second-1]!=-1)
+	{
+		_mask[Coord.first+1][Coord.second-1]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first+1, Coord.second-1);
+		map::uncover(TmpIntPair);
+	}//down left
+	if(Coord.first<_NumberOfRow-1 && Coord.second<_NumberOfCol-1 && _map[Coord.first+1][Coord.second+1]!=-1)
+	{
+		_mask[Coord.first+1][Coord.second+1]=1;
+		pair<int, int> TmpIntPair=make_pair(Coord.first+1, Coord.second+1);
+		map::uncover(TmpIntPair);
+	}//down right
+}
+
 void map::count_surrounding_mines(pair<int, int> Coord)
 {
 	if(Coord.first>0 && _map[Coord.first-1][Coord.second]!=-1) _map[Coord.first-1][Coord.second]++;//up

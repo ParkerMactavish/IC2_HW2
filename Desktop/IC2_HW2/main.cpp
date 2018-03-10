@@ -109,17 +109,19 @@ int main()
 		{
 			cout<<"Please enter the very first step you want to put your foot on:"<<endl<<"Row:";
 			cin>>CurrentStepInChar.first;
-			CurrentStep.first=Stirng2UnsingedInt(CurrentStepInChar.first)-1;
-			if(CurrentStep.first>=Row) Flag=51;
+			CurrentStep.first=Stirng2UnsingedInt(CurrentStepInChar.first);
+			if(CurrentStep.first>Row) Flag=51;
 			else ProcessInput(CurrentStep.first, Flag);
+			CurrentStep.first--;
 		}
 		if(Flag==6)
 		{
 			cout<<"Column:";
 			cin>>CurrentStepInChar.second;
-			CurrentStep.second=Stirng2UnsingedInt(CurrentStepInChar.second)-1;			
-			if(CurrentStep.second>=Col) Flag=61;
+			CurrentStep.second=Stirng2UnsingedInt(CurrentStepInChar.second);			
+			if(CurrentStep.second>Col) Flag=61;
 			else ProcessInput(CurrentStep.second, Flag);
+			CurrentStep.second--;
 		}
 		if(Flag==7)
 		{
