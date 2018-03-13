@@ -8,22 +8,22 @@ using namespace std;
 class map
 {
 public:
-	map();
-	bool init();
-	void print_map();
-	void set_col(int col);
-	void set_row(int row);
-	void set_mine(int mine);
-	void set_mine_pos(pair<int, int> FirstStep);
-	void count_surrounding_mines(pair<int, int> Coord);
-	void uncover(pair<int, int> Coord);
-	bool check_mine(pair<int, int> Coord);
-	void make_flag(pair<int, int> Coord);
-	void unmake_flag(pair<int, int>Coord);
-	int get_remain_number_of_mine();
-	int get_remain_number_of_mine_on_table();
-	int check_mask(pair<int, int>Coord);
-	void show_hand();
+	map();//constructor, not used though
+	bool init();//initialize the map, by _NumberOfRow, _NumberOfCol, _NumberOfMine and check if the _NumberOfMine is too large
+	void print_map();//print the whole map
+	void set_col(int col);//set _NumberOfCol
+	void set_row(int row);//set _NumberOfRow
+	void set_mine(int mine);//set _NumberOfMine
+	void set_mine_pos(pair<int, int> FirstStep);//open up a game with the first step position, and prevent the player from stepping on a mine at the very first step
+	void count_surrounding_mines(pair<int, int> Coord);//count the number of surrounding mines to present them on the map 
+	void uncover(pair<int, int> Coord);//uncover the specific square on the map
+	bool check_mine(pair<int, int> Coord);//check if there is a mine on the specific square of the map
+	void make_flag(pair<int, int> Coord);//make flag on the specific square of the map
+	void unmake_flag(pair<int, int>Coord);//unmark the specific square of the map
+	int get_remain_number_of_mine();//get the "real" number of the mines
+	int get_remain_number_of_mine_on_table();//get the "seeming" number of the mines
+	int check_mask(pair<int, int>Coord);//check if the mask is marked as "flagged", "covered", or "revealed"
+	void show_hand();//show all the position of the mines
 	//int get_unmasked();
 
 private:
