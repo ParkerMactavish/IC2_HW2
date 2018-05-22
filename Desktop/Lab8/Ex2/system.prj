@@ -1,0 +1,5 @@
+verilog work "trafficLight.v"
+verilog work "sevenSeg.v"
+verilog work "freqDivider.v"
+verilog work "counter.v"
+verilog work "system.v"

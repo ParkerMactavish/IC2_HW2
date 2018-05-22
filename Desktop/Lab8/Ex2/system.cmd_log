@@ -1,0 +1,9 @@
+xst -intstyle ise -ifn "C:/Users/eelogic/Desktop/Lab8/Ex2/system.xst" -ofn "C:/Users/eelogic/Desktop/Lab8/Ex2/system.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc system.ucf -p xc6slx25-ftg256-3 system.ngc system.ngd  
+map -intstyle ise -p xc6slx25-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o system_map.ncd system.ngd system.pcf 
+xst -intstyle ise -ifn "C:/Users/eelogic/Desktop/Lab8/Ex2/system.xst" -ofn "C:/Users/eelogic/Desktop/Lab8/Ex2/system.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc system.ucf -p xc6slx25-ftg256-3 system.ngc system.ngd  
+map -intstyle ise -p xc6slx25-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o system_map.ncd system.ngd system.pcf 
+par -w -intstyle ise -ol high -mt off system_map.ncd system.ncd system.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml system.twx system.ncd -o system.twr system.pcf -ucf system.ucf 
+bitgen -intstyle ise -f system.ut system.ncd 

@@ -1,0 +1,27 @@
+//! **************************************************************************
+// Written by: Map P.28xd on Wed May 09 13:24:44 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "H4" LEVEL 1;
+COMP "outSS<0>" LOCATE = SITE "P5" LEVEL 1;
+COMP "outSS<1>" LOCATE = SITE "R5" LEVEL 1;
+COMP "outSS<2>" LOCATE = SITE "T6" LEVEL 1;
+COMP "outSS<3>" LOCATE = SITE "L8" LEVEL 1;
+COMP "outSS<4>" LOCATE = SITE "T8" LEVEL 1;
+COMP "outSS<5>" LOCATE = SITE "R12" LEVEL 1;
+COMP "outSS<6>" LOCATE = SITE "T12" LEVEL 1;
+COMP "outLED<0>" LOCATE = SITE "N4" LEVEL 1;
+COMP "outLED<1>" LOCATE = SITE "N3" LEVEL 1;
+COMP "outLED<2>" LOCATE = SITE "R1" LEVEL 1;
+COMP "rst" LOCATE = SITE "F1" LEVEL 1;
+TIMEGRP clk = BEL "FD/dclk" BEL "FD/count_0" BEL "FD/count_1" BEL "FD/count_2"
+        BEL "FD/count_3" BEL "FD/count_4" BEL "FD/count_5" BEL "FD/count_6"
+        BEL "FD/count_7" BEL "FD/count_8" BEL "FD/count_9" BEL "FD/count_10"
+        BEL "FD/count_11" BEL "FD/count_12" BEL "FD/count_13" BEL
+        "FD/count_14" BEL "FD/count_15" BEL "FD/count_16" BEL "FD/count_17"
+        BEL "FD/count_18" BEL "FD/count_19" BEL "FD/count_20" BEL
+        "FD/count_21" BEL "FD/count_22" BEL "FD/count_23" BEL "FD/count_24"
+        BEL "FD/count_23_1" BEL "clk_BUFGP/BUFG";
+SCHEMATIC END;
+
